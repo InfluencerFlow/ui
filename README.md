@@ -8,6 +8,7 @@
 - Tailwind CSS
 - Shadcn UI
 - PostgreSQL
+- polar (payment gateway)
 
 ## Features
 
@@ -34,6 +35,10 @@
 3. Run `pnpm run prisma`
 4. Run `pnpm run dev`
 5. Open the browser and go to `http://localhost:5173`
+
+## To navigate through development
+ 
+To navigate through development - see the [DEVELOPMENT.md](DEVELOPMENT.md) file.
 
 ## License
 
