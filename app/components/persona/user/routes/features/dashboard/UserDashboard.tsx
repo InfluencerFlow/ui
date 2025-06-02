@@ -22,12 +22,15 @@ import {
   SelectContent,
   SelectItem,
 } from "~/components/ui/select";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import {
   Creator,
   creatorMockData,
 } from "~/components/persona/user/server/dashboard/mock-data";
 import { Avatar, AvatarFallback, AvatarImage } from "~/components/ui/avatar";
+// import { nlqsSearch } from "~/server/utils/nlqs/core/search.server";
+import { action } from "~/routes/feature+/dashboard+/_index";
+import { Form, useActionData } from "@remix-run/react";
 
 const genres = [
   { value: "gaming", label: "Gaming" },
@@ -49,6 +52,14 @@ export interface Preferences {
 }
 
 const UserDashboard = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  const actionData = useActionData<typeof action>();
+  useEffect(() => {
+    if (actionData) {
+      console.log("actionData", actionData);
+    }
+  }, [actionData]);
+  console.log("actionData", actionData);
   // states
   const [prompt, setPrompt] = useState<string>("");
   const [preferences, setPreferences] = useState<Preferences>({
@@ -81,8 +92,15 @@ const UserDashboard = () => {
   };
 
   // 2) handle serch by prompt
-  const handlePromptSearch = (prompt: string) => {
-    console.log(prompt);
+  const handlePromptSearch = async (prompt: string) => {
+    try {
+      //   await nlqsSearch.initialize(creatorMockData);
+      //   const results = await nlqsSearch.search(prompt);
+      // Use the results.ids to filter/display creators
+      //   console.log("Matching creator IDs:", results.ids);
+    } catch (error) {
+      console.error("Error searching:", error);
+    }
   };
 
   // 3) handle genre change
@@ -159,23 +177,26 @@ const UserDashboard = () => {
             <CardHeader>
               <CardTitle>Prompt</CardTitle>
             </CardHeader>
-            <CardContent className="grid grid-cols-2 md:grid-cols-1 gap-2">
-              {/* Prompt input */}
-              <Input
-                placeholder="Enter a prompt"
-                value={prompt}
-                onChange={(e) => handlePromptChange(e.target.value)}
-              />
-              <Button
-                type="button"
-                className="w-fit"
-                disabled={!prompt}
-                onClick={() => handlePromptSearch(prompt)}
-              >
-                <WandSparklesIcon className="w-4 h-4" />
-                Prompt Search
-              </Button>
-            </CardContent>
+            <Form method="post">
+              <CardContent className="grid grid-cols-2 md:grid-cols-1 gap-2 lg:grid-cols-2">
+                {/* Prompt input */}
+                <Input
+                  placeholder="Enter a prompt"
+                  value={prompt}
+                  onChange={(e) => handlePromptChange(e.target.value)}
+                />
+                <Button
+                  type="submit"
+                  className="w-fit"
+                  disabled={!prompt}
+                  // onClick={() => handlePromptSearch(prompt)}
+                >
+                  <WandSparklesIcon className="w-4 h-4" />
+                  Prompt Search
+                </Button>
+              </CardContent>
+              <input type="hidden" name="prompt" value={prompt} />
+            </Form>
           </Card>
           {/* // 3) Search based categorization */}
         </CardContent>

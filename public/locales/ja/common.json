@@ -1,7 +1,7 @@
 {
   "greeting": "こんにちは",
-  "welcome": "スペクトラルにごようび",
+  "welcome": "InfluencerFlow にごようび",
   "hero": {
-    "description": "あなたのフィードバックを話す"
+    "description": "あなたの次のインフルエンサーを見つける"
   }
 }

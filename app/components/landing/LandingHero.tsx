@@ -12,7 +12,7 @@ export const LandingHero = () => {
         <main className="text-5xl md:text-6xl font-bold">
           <h1 className="inline">
             <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600">
-              Leostack
+              InfluencerFlow
             </span>{" "}
             <br></br>
           </h1>{" "}
@@ -30,7 +30,7 @@ export const LandingHero = () => {
 
           <a
             rel="noreferrer noopener"
-            href="https://github.com/leocodeio/leostack"
+            href="https://github.com/leocodeio/InfluencerFlow"
             target="_blank"
             className={`w-full md:w-1/3 py-5 px-4 text-center  dark:border-gray-700  hover:dark:bg-gray-700 border border-gray-300 ${buttonVariants(
               {

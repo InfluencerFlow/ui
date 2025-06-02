@@ -1,4 +1,4 @@
-## leostack
+## InfluencerFlow
 
 ## Tech Stack
 
@@ -8,6 +8,10 @@
 - Tailwind CSS
 - Shadcn UI
 - PostgreSQL
+- chroma (vector database)
+- gemini (ai model)
+- nlqs (natural language query system)
+- agentic (agentic negotiationframework)
 - polar (payment gateway)
 
 ## Features
@@ -19,6 +23,11 @@
 - Email and Password Authentication
 - Social Authentication (Google, Github, etc)
 - Database Integration (PostgreSQL)
+- multi-lingual (i18n)
+- multi-theme (dark/light)
+- multi-color-scheme (red, blue, green, etc)
+- payment gateway (stripe)
+- nlqs (natural language query system)
 - [ ] ENV check
 - [ ] Logging
 - [ ] Deployment
@@ -37,7 +46,7 @@
 5. Open the browser and go to `http://localhost:5173`
 
 ## To navigate through development
- 
+
 To navigate through development - see the [DEVELOPMENT.md](DEVELOPMENT.md) file.
 
 ## License
